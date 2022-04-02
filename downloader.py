@@ -1,10 +1,12 @@
 import pytube
 
+location = "D:/Audiost"
+
 def download_video(url, resolution):
     itag = choose_resolution(resolution)
     video = pytube.YouTube(url)
     stream = video.streams.get_by_itag(itag)
-    stream.download()
+    stream.download(location)
     return stream.default_filename
 
 def download_videos(urls, resolution):
